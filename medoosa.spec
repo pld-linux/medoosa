@@ -5,14 +5,18 @@ Version:	1.1
 Release:	1
 License:	GPL
 Group:		Development/Tools
-# source0 URL?
+# from:		http://dl.sourceforge.net/medoosa/medoosa-1.1-1.src.rpm
 Source0:	%{name}-%{version}.tar.gz
+Patch0:		%{name}-opt.patch
 URL:		http://medoosa.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	ccdoc
+BuildRequires:	libstdc++-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	libxslt-progs
 Requires:	ccdoc
 Requires:	dia
-Requires:	libxml2
-Requires:	libxslt
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,9 +35,13 @@ Aktualnie rozmieszczenie diagramów musi byæ wykonywane rêcznie.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-./configure --prefix=%{_prefix}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
 
 %{__make}
 
@@ -41,15 +49,14 @@ Aktualnie rozmieszczenie diagramów musi byæ wykonywane rêcznie.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	prefix=$RPM_BUILD_ROOT%{_prefix}
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-# isn't COPYING just GPL?
-%doc COPYING NEWS README THANKS docs/*.{ps,dtd} docs/UXF/*.dtd
+%doc NEWS README THANKS docs/*.{ps,dtd} docs/UXF/*.dtd
 %attr(755,root,root) %{_bindir}/medoosa
 %dir %{_libdir}/medoosa
 %{_libdir}/medoosa/diff-uxf

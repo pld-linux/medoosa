@@ -1,0 +1,43 @@
+--- medoosa-1.1/source/Makefile.am.orig	Fri Mar 22 21:57:54 2002
++++ medoosa-1.1/source/Makefile.am	Wed Feb  5 13:44:27 2003
+@@ -8,7 +8,6 @@
+ MANYWARNFLAGS=\
+ -pipe \
+ -ansi -pedantic-errors \
+--O \
+ -Wall \
+ -W \
+ -Wuninitialized \
+@@ -33,17 +32,17 @@
+ XML2_LIBS=@XML2_LIBS@
+ 
+ #CFLAGS=-Wall -g $(PROFFLAGS)
+-CFLAGS=-g $(MANYWARNFLAGS) $(PROFFLAGS) $(XML2_CFLAGS)
++AM_CFLAGS=$(MANYWARNFLAGS) $(PROFFLAGS) $(XML2_CFLAGS)
+ 
+-CXXFLAGS=$(CFLAGS)
++AM_CXXFLAGS=$(AM_CFLAGS)
+ 
+ bin_SCRIPTS = medoosa
+-EXTRA_DIST += medoosa.in
+ pkgdata_SCRIPTS = medoosa2.sh xsltfilter unflatten2.pl mapconvert.pl
+-EXTRA_DIST += medoosa2.sh.in xsltfilter.in unflatten2.pl mapconvert.pl
+ pkgdata_DATA = uxf2metrics.xsl uxf-g-dot.xsl uxf-dia.xsl dia-uxf.xsl
+-EXTRA_DIST += $(pkgdata_DATA)
+ pkglib_PROGRAMS = translate diff-uxf patch-ccdoc
++EXTRA_DIST = medoosa.in \
++	medoosa2.sh.in xsltfilter.in unflatten2.pl mapconvert.pl \
++	$(pkgdata_DATA)
+ 
+ #Info: (autoconf.info.gz)Installation Directory Variables
+ medoosa: medoosa.in
+--- medoosa-1.1/configure.in.orig	Sun Mar 24 22:32:43 2002
++++ medoosa-1.1/configure.in	Wed Feb  5 13:52:58 2003
+@@ -5,6 +5,7 @@
+ AM_INIT_AUTOMAKE(medoosa, 1.1)
+ 
+ dnl Checks for programs.
++AC_PROG_CC
+ AC_PROG_CXX
+ AC_LANG_CPLUSPLUS
+ 

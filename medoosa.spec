@@ -7,6 +7,7 @@ License:	GPL
 Group:		Development/Tools
 # from:		http://dl.sourceforge.net/medoosa/medoosa-1.1-1.src.rpm
 Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	9dc6b500efa3993a3bb83954ffb03d6f
 Patch0:		%{name}-opt.patch
 URL:		http://medoosa.sourceforge.net/
 BuildRequires:	autoconf

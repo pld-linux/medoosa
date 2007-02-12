@@ -1,5 +1,5 @@
 Summary:	Generates UML diagrams from C++ sources
-Summary(pl):	Generowanie diagramów UML ze ¼róde³ C++
+Summary(pl.UTF-8):   Generowanie diagramÃ³w UML ze ÅºrÃ³deÅ‚ C++
 Name:		medoosa
 Version:	1.1
 Release:	1
@@ -27,12 +27,12 @@ be made interactively in a diagram editor (Dia) and are fed back into
 the source as Javadoc-style comments. At this time, the layout must
 still be done by hand.
 
-%description -l pl
-Medoosa to narzêdzie do dokumentacji dla C++, potrafi±ce wygenerowaæ
-diagramy UML dla klas w³±cznie z uogólnieniami i powi±zaniami.
-Poprawki mog± byæ wykonywane interaktywnie w edytorze diagramów (Dia)
-i s± nanoszone z powrotem do ¼róde³ jako komentarze w stylu Javadoc.
-Aktualnie rozmieszczenie diagramów musi byæ wykonywane rêcznie.
+%description -l pl.UTF-8
+Medoosa to narzÄ™dzie do dokumentacji dla C++, potrafiÄ…ce wygenerowaÄ‡
+diagramy UML dla klas wÅ‚Ä…cznie z uogÃ³lnieniami i powiÄ…zaniami.
+Poprawki mogÄ… byÄ‡ wykonywane interaktywnie w edytorze diagramÃ³w (Dia)
+i sÄ… nanoszone z powrotem do ÅºrÃ³deÅ‚ jako komentarze w stylu Javadoc.
+Aktualnie rozmieszczenie diagramÃ³w musi byÄ‡ wykonywane rÄ™cznie.
 
 %prep
 %setup -q

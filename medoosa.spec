@@ -1,5 +1,5 @@
 Summary:	Generates UML diagrams from C++ sources
-Summary(pl.UTF-8):   Generowanie diagramów UML ze źródeł C++
+Summary(pl.UTF-8):	Generowanie diagramów UML ze źródeł C++
 Name:		medoosa
 Version:	1.1
 Release:	1
